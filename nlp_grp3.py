@@ -57,3 +57,8 @@ def print_translations(english_sentences, predicted_sentences):
 
 def get_rev_token_dict(tokenizer):
     return {idx: word for word, idx in tokenizer.word_index.items()}
+
+def convert_predictions_to_tokens(predictions):
+    predicted_tokens_np = np.argmax(predictions, axis=-1)
+    print("Shape of predicted_tokens:", predicted_tokens_np.shape)
+    return predicted_tokens_np
